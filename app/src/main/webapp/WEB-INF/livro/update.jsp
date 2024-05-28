@@ -9,22 +9,24 @@
     </head>
     <body>
         <div class="container">
-        <h1>Novo Livro</h1>
-            <form action="/livros/insert" method="post">
+            <h1>Editar Livro</h1>
+            <form action="/livros/update" method="post">
+                <input type="hidden" name="id" value="${livro.id}" />
                 <div>
-                    <label class="form-label"> Título: </label>
-                    <input type="text" name="titulo" class="form-control">
+                    <label class="form-label">Título:</label>
+                    <input type="text" name="titulo" class="form-control" value="${livro.titulo}" />
                 </div>
                 <div>
                     <label class="form-label">Gênero:</label>
-                    <select name="genero" class="form-control">
+                    <select name="genero" class="form-select">
                         <c:forEach var="item" items="${generos}">
-                            <option value="${item.id}">${item.nome}</option>
+                            <option ${item.id == livro.genero.id ? "selected" : ""} value="${item.id}">${item.nome}</option>
                         </c:forEach>
                     </select>
                 </div>
-            <a href="/livros/list" class="btn btn-secondary">Voltar</a>
-            <button type="submit" class="btn btn-success">Salvar</button>
+                <hr />
+                <a href="/livros/list" class="btn btn-secondary">Voltar</a>
+                <button type="submit" class="btn btn-success">Salvar</button>
             </form>
         </div>
     </body>
