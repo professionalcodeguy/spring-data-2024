@@ -12,14 +12,16 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "Livros")
 public class Livro {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id 
+    @GeneratedValue(strategy = GenerationType.IDENTITY) 
     private long id;
     @Column(nullable = false)
-    private String titulo;
+    private String titulo; 
     
-    @ManyToOne
-    @JoinColumn(name = "id_genero", nullable = false)
+    @ManyToOne 
+    
+    @JoinColumn(name = "id_genero", nullable = false) 
+    
     private Genero genero;
 
     public long getId() {
